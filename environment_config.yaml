@@ -3,9 +3,9 @@ attributes:
     # Settings group can be one of "general", "security", "compute", "network",
     # "storage", "logging", "openstack_services" and "other".
     group: 'other'
-  rsync-backup_role_text:
-    value: 'Set default value'
-    label: 'Text field'
-    description: 'Description for text field'
+  base:
+    value: '/var/tmp'
+    label: 'Backupfolder'
+    description: 'Folder where your backups should go'
     weight: 25
     type: "text"

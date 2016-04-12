@@ -1,8 +1,8 @@
 rsync-backup_role_role:
   # Role name
-  name: "Set here the name for the role. This name will be displayed in the Fuel web UI"
+  name: "Rsync Server for backup purposes"
   # Role description
-  description: "Write description for your role"
+  description: "This role sets up a backup Server based on Rsync. You can configure a dedicated directory for your backups"
   # If primary then during orchestration this role will be
   # separated into primary-role and role
   has_primary: false

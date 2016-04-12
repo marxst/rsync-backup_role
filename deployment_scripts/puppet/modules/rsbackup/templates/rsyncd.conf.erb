@@ -1,0 +1,11 @@
+# This file is managed by puppet, do not touch
+
+max connections = 100
+log file = /var/log/rsync.log
+timeout = 300
+
+[backup]
+  comment = Backup Things here
+  path = <%= @base %>
+  read only = no
+  list = yes 

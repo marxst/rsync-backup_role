@@ -8,5 +8,5 @@
   compatible: []
   requires: []
   incompatible: []
-  label: "Plugin label, that will be shown on UI"
-  description: "Component description (optional)"
+  label: "Backup Server Role"
+  description: "Role for setting aup a Backup-Server with rsync"
