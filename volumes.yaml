@@ -6,13 +6,8 @@ volumes_roles_mapping:
 # Set here new volumes for your role
 volumes: 
   - id: "rsbackup"
-    type: "vg"
-    min_size: {generator: "calc_total_vg"}
+    type: "partition"
+    min_size: 20
     label: "BackupSpace"
-    volumes:
-      - mount: "/backups"
-        type: "lv"
-        name: "vol_rsbackup"
-        size: {generator: "calc_total_vg"}
-        file_system: "ext4"
-
+    mount: "/backups"
+    file_system: "ext4"
