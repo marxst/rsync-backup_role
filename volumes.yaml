@@ -1,8 +1,8 @@
 volumes:
-  - id: "rsbackup"
+  - id: "os"
     type: "vg"
     min_size: {generator: "calc_min_os_size"}
-    label: "Rsync_Backup_Role"
+    label: "Base System"
     items:
       - mount: "/"
         type: "lv"
@@ -20,6 +20,5 @@ volumes:
         size: {generator: "calc_swap_size"}
         file_system: "swap"
 volumes_roles_mapping:
-  rsync-backup_role_role:
-    - {allocate_size: "min", id: "os"}
-    - {allocate_size: "all", id: "rsbackup"}
+  rsync-backup_role:
+    - {allocate_size: "all", id: "os"}

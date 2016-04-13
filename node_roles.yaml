@@ -1,4 +1,4 @@
-rsync-backup_role_role:
+rsync-backup_role:
   # Role name
   name: "Rsync Server for backup purposes"
   # Role description
