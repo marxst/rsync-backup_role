@@ -5,7 +5,7 @@ volumes_roles_mapping:
 volumes:
   - id: "rsbackup"
     type: "partition"
-    min_size: {generator: "calc_min_rsbackup_size"} 
+    min_size: {generator: "calc_total_vg"} 
     label: "rsyncbackups"
     mount: "/backups"
     disk_label: "RSBACKUPS"
