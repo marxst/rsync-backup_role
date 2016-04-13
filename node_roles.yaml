@@ -11,3 +11,10 @@ rsync-backup_role:
   # Weight that will be used to sort out the
   # roles on the Fuel web UI
   weight: 1000
+  conflicts:
+  - compute
+  - controller
+  - cinder
+  - cinder-vmware
+  - ceph-osd
+  - mongo
