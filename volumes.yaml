@@ -1,18 +1,17 @@
-volumes_roles_mapping:
-  # Default role mapping
-  rsync-backup_role_role:
-    - {allocate_size: "min", id: "os"}
-    - {allocate_size: "min", id: "rsbackup"}
-# Set here new volumes for your role
 volumes:
-  - id: "os"
+  - id: "rsbackup"
     type: "vg"
     min_size: {generator: "calc_min_os_size"}
-    label: "Base System"
-    volumes:
+    label: "Rsync_Backup_Role"
+    items:
       - mount: "/"
         type: "lv"
         name: "root"
+        size: {generator: "calc_total_root_vg"}
+        file_system: "ext4"
+      - mount: "/backups"
+        type: "lv"
+        name: "backups"
         size: {generator: "calc_total_root_vg"}
         file_system: "ext4"
       - mount: "swap"
@@ -20,17 +19,7 @@ volumes:
         name: "swap"
         size: {generator: "calc_swap_size"}
         file_system: "swap"
-  - id: "rsbackup"
-    type: "vg"
-    min_size:
-      generator: "calc_gb_to_mb"
-      generator_args: [10]
-    label: "RsyncBackup"
-    volumes:
-      - mount: "/backups"
-        type: "lv"
-        name: "backups"
-        size:
-          generator: "calc_total_vg"
-          generator_args: ["backups"]
-        file_system: "ext4"
+volumes_roles_mapping:
+  role_name:
+    - {allocate_size: "min", id: "os"}
+    - {allocate_size: "all", id: "rsbackup"}
