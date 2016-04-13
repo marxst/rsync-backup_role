@@ -3,4 +3,4 @@
   type: shell
   parameters:
     cmd: echo all > /tmp/plugin.all
-    timeout: 42[]
+    timeout: 42
