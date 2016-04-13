@@ -3,6 +3,11 @@
 class rsbackup (
   $base = '/var/tmp'
   ){
+  file { $base:
+    ensure => directory,
+    before => Mount[$base],
+  }
+
   mount { $base:
     ensure  => mounted,
     device  => '/backups',
