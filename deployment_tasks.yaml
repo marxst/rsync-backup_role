@@ -3,7 +3,10 @@
 
 - id: rsync-backup_role
   type: group
+  requires: [deploy_start]
+  required_for: [deploy_end]
   role: [rsync-backup_role]
+  tasks: [hiera, globals, tools, logging, netconfig, hosts, deploy_start]
   parameters:
     strategy:
       type: parallel
