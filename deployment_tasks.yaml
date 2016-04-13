@@ -37,7 +37,7 @@
   role: [rsync-backup_role]
   required_for: [pre_deployment_start]
   parameters:
-    cmd: mkdir /backups
+    cmd: "mkdir -p /backups"
     cwd: "/"
     retries: 3
     interval: 20
