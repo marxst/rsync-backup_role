@@ -3,7 +3,7 @@ name: rsync-backup_role
 # Human-readable name for your plugin
 title: Rsync backup server role 
 # Plugin version
-version: '1.0.7'
+version: '1.0.8'
 # Description
 description: A plugin to install a simple rsync based backup server 
 # Required fuel version
