@@ -38,6 +38,7 @@
   required_for: [pre_deployment_start]
   parameters:
     cmd: mkdir /backups
+    cwd: "/"
     retries: 3
     interval: 20
     timeout: 180
