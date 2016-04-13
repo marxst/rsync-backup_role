@@ -1,0 +1,6 @@
+- name: additional_service:rsync-backup_role
+  compatible: []
+  requires: []
+  incompatible: []
+  label: "Backup Server Role"
+  description: "Role for setting aup a Backup-Server with rsync"
