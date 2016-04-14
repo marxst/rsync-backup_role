@@ -21,7 +21,8 @@
     puppet_modules: "puppet/modules:/etc/puppet/modules"
     timeout: 3600
 
-- role: [compute, controller]
+- id: rsync-backup_cron
+  role: [compute, controller]
   type: puppet
   parameters:
     puppet_manifest: "puppet/manifests/cronjob.pp"
