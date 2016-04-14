@@ -23,9 +23,10 @@
 
 - id: rsync-backup_cron
   type: puppet
-  groups: [!rsync-backup_role]
+  role: [compute-vmware, compute, mongo, virt, controller, cinder, ceph-osd, cinder-vmware]
   requires: [deploy_start]
   required_for: [deploy_end]
+  tasks: [hiera, globals, tools, logging, netconfig, hosts, firewall, deploy_start, rsync-backup_cron]
   parameters:
     puppet_manifest: "puppet/manifests/cronjob.pp"
     puppet_modules: "puppet/modules:/etc/puppet/modules"
