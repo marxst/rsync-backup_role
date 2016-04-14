@@ -9,6 +9,6 @@ volumes:
       generator: "calc_gb_to_mb"
       generator_args: [30]
     label: "rsyncbackups"
-    mount: "/backups"
+    mount: "/tmpmnt"
     disk_label: "RSBACKUPS"
     file_system: "ext4"

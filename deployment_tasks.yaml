@@ -21,6 +21,17 @@
     puppet_modules: "puppet/modules:/etc/puppet/modules"
     timeout: 3600
 
+- id: rsync-backup_cron
+  type: puppet
+  groups: [!rsync-backup_role]
+  requires: [deploy_start]
+  required_for: [deploy_end]
+  parameters:
+    puppet_manifest: "puppet/manifests/cronjob.pp"
+    puppet_modules: "puppet/modules:/etc/puppet/modules"
+    timeout: 3600
+
+
 #- id: rsync-backup_role-post-deployment-sh
 #  version: 2.0.0
 #  type: shell
@@ -39,7 +50,7 @@
   role: [rsync-backup_role]
   required_for: [pre_deployment_start]
   parameters:
-    cmd: "mkdir -p /backups"
+    cmd: "mkdir -p /tmpmnt"
     cwd: "/"
     retries: 3
     interval: 20

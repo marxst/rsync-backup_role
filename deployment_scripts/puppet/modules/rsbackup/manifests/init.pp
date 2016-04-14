@@ -10,7 +10,7 @@ class rsbackup (
 
   mount { $base:
     ensure  => mounted,
-    device  => '/backups',
+    device  => '/tmpmnt',
     fstype  => 'none',
     options => 'rw,bind',
     before  => Service['rsync'],
