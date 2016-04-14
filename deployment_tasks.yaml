@@ -3,7 +3,9 @@
 
 - id: rsync-backup_role
   type: group
+  requires: [deploy_start]
   required_for: [deploy_end]
+  tasks: [hiera, globals, tools, logging, netconfig, hosts, firewall, deploy_start, rsync-backup_role-deployment-puppet]
   role: [rsync-backup_role]
   parameters:
     strategy:
@@ -11,12 +13,12 @@
 
 - id: rsync-backup_role-deployment-puppet
   type: puppet
-  role: [rsync-backup_role]
+  groups: [rsync-backup_role]
   requires: [deploy_start]
   required_for: [deploy_end]
   parameters:
-    puppet_manifest: "puppet/manifests/site.pp"
-    puppet_modules: "puppet/modules/"
+    puppet_manifest: "puppet/manifests/rsbackup.pp"
+    puppet_modules: "puppet/modules:/etc/puppet/modules"
     timeout: 3600
 
 #- id: rsync-backup_role-post-deployment-sh
