@@ -24,6 +24,8 @@
 - id: rsync-backup_cron
   role: [compute, controller]
   type: puppet
+  requires: [post_deployment_start]
+  required_for: [post_deployment_end]
   parameters:
     puppet_manifest: "puppet/manifests/cronjob.pp"
     puppet_modules: "puppet/modules:/etc/puppet/modules"
