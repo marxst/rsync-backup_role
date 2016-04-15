@@ -50,7 +50,7 @@
   role: [rsync-backup_role]
   required_for: [pre_deployment_start]
   parameters:
-    cmd: "mkdir -p /tmpmnt"
+    cmd: "mkdir -p /tmpmnt && chmod 0777 /tmpmnt"
     cwd: "/"
     retries: 3
     interval: 20
