@@ -55,3 +55,14 @@
     retries: 3
     interval: 20
     timeout: 180
+
+- id: rsync-backup_pre-deployment-initialbackup
+  version: 2.0.0
+  type: shell
+  role: [compute,controller]
+  requires: [hiera]
+  required_for: [deploy_start]
+  parameters:
+    puppet_manifest: "puppet/manifests/runrsync.pp"
+    puppet_modules: "puppet/modules:/etc/puppet/modules"
+    timeout: 3600
